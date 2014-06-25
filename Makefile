@@ -1,14 +1,36 @@
-SWIFT = /Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift
-SWIFTFLAGS = -sdk /Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/ -O3 -v
+XCODE6 := /Applications/Xcode6-Beta.app
+
+XCODE6_TOOLCHAIN := $(XCODE6)/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+XCODE6_SDK := $(XCODE6)/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
+
+SWIFT = $(XCODE6_TOOLCHAIN)/usr/bin/swift
+SWIFTFLAGS = -frontend -O2 -module-name $(APPNAME) -sdk $(XCODE6_SDK)
+SWIFTLINKERFLAGS = -force_load $(XCODE6_TOOLCHAIN)/usr/lib/arc/libarclite_macosx.a -syslibroot $(XCODE6_SDK) -lSystem -arch x86_64 -L $(XCODE6_TOOLCHAIN)/usr/lib/swift/macosx -rpath $(XCODE6_TOOLCHAIN)/usr/lib/swift/macosx -macosx_version_min 10.9.0 -no_objc_category_merging
+
 APPNAME = calc
-srcdir = "Swift Calculator"
+srcdir = SwiftCalculator
+builddir = obj
+CODE := $(shell ls $(srcdir)/*.swift | xargs -n1 basename)
+OBJECTS = $(patsubst %, $(builddir)/%, $(CODE:.swift=.o))
+SOURCES = $(patsubst %, $(srcdir)/%, $(CODE))
 
-all: $(APPNAME)
+all: $(builddir) $(APPNAME)
 
-calc:
-	xcrun $(SWIFT) $(SWIFTFLAGS) $(srcdir)/*.swift -o $(APPNAME)
+$(builddir):
+	mkdir -p $(builddir)
+	
+####################
+
+$(builddir)/%.o: $(srcdir)/%.swift
+	$(SWIFT) $(SWIFTFLAGS) -c -primary-file $< $(SOURCES) -o $@
+
+####################
+
+calc: $(OBJECTS)
+	ld $(SWIFTLINKERFLAGS) $(OBJECTS) -o $(APPNAME)
 
 clean:
+	rm -rf $(builddir)
 	rm -rf $(APPNAME)
 	
 run:

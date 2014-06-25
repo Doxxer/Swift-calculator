@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		8D497236194C578E00DCC0E9 /* pg.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pg.playground; sourceTree = "<group>"; };
-		8D78622F1945C26600584698 /* Swift calculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift calculator"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D78622F1945C26600584698 /* SwiftCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7862321945C26600584698 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8D87F6C7195B47AF00076A93 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
 		8DC4EA92195350D000E8176D /* BinaryFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BinaryFunction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				8D497236194C578E00DCC0E9 /* pg.playground */,
-				8D7862311945C26600584698 /* Swift calculator */,
+				8D7862311945C26600584698 /* SwiftCalculator */,
 				8D7862301945C26600584698 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,12 +73,12 @@
 		8D7862301945C26600584698 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D78622F1945C26600584698 /* Swift calculator */,
+				8D78622F1945C26600584698 /* SwiftCalculator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D7862311945C26600584698 /* Swift calculator */ = {
+		8D7862311945C26600584698 /* SwiftCalculator */ = {
 			isa = PBXGroup;
 			children = (
 				8D7862321945C26600584698 /* main.swift */,
@@ -89,8 +89,8 @@
 				8DDCB82B19537A5900B97E74 /* Visitor */,
 				8DCE5D641950E86700AA79DB /* AST */,
 			);
-			name = "Swift calculator";
-			path = "/Users/doxer/Documents/GitRepositories/Swift calculator/Swift Calculator";
+			name = SwiftCalculator;
+			path = "/Users/doxer/Documents/GitRepositories/Swift calculator/SwiftCalculator";
 			sourceTree = "<absolute>";
 		};
 		8DCE5D641950E86700AA79DB /* AST */ = {
@@ -117,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D78622E1945C26600584698 /* Swift calculator */ = {
+		8D78622E1945C26600584698 /* SwiftCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D7862361945C26600584698 /* Build configuration list for PBXNativeTarget "Swift calculator" */;
+			buildConfigurationList = 8D7862361945C26600584698 /* Build configuration list for PBXNativeTarget "SwiftCalculator" */;
 			buildPhases = (
 				8D78622B1945C26600584698 /* Sources */,
 				8D78622C1945C26600584698 /* Frameworks */,
@@ -129,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = "Swift calculator";
+			name = SwiftCalculator;
 			productName = YandexCalcualtor;
-			productReference = 8D78622F1945C26600584698 /* Swift calculator */;
+			productReference = 8D78622F1945C26600584698 /* SwiftCalculator */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -148,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8D78622A1945C26600584698 /* Build configuration list for PBXProject "Swift calculator" */;
+			buildConfigurationList = 8D78622A1945C26600584698 /* Build configuration list for PBXProject "SwiftCalculator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -160,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D78622E1945C26600584698 /* Swift calculator */,
+				8D78622E1945C26600584698 /* SwiftCalculator */,
 			);
 		};
 /* End PBXProject section */
@@ -266,21 +266,21 @@
 		8D7862371945C26600584698 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "Swift calculator";
+				PRODUCT_NAME = SwiftCalculator;
 			};
 			name = Debug;
 		};
 		8D7862381945C26600584698 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "Swift calculator";
+				PRODUCT_NAME = SwiftCalculator;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D78622A1945C26600584698 /* Build configuration list for PBXProject "Swift calculator" */ = {
+		8D78622A1945C26600584698 /* Build configuration list for PBXProject "SwiftCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D7862341945C26600584698 /* Debug */,
@@ -289,7 +289,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8D7862361945C26600584698 /* Build configuration list for PBXNativeTarget "Swift calculator" */ = {
+		8D7862361945C26600584698 /* Build configuration list for PBXNativeTarget "SwiftCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D7862371945C26600584698 /* Debug */,
