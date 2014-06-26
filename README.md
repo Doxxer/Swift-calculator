@@ -1,4 +1,4 @@
 Swift-calculator
 ================
 
-Simple interpretator of simple language, written on Swift
+Simple interpretator of a simple language, written in Swift
