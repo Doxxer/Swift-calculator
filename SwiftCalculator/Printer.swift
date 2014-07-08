@@ -9,9 +9,9 @@
 import Foundation
 
 class Printer : PrinterVisitor {
-    var program: Expression[]
+    var program: [Expression]
     
-    init(let _ program: Expression[]) {
+    init(let _ program: [Expression]) {
         self.program = program
     }
     

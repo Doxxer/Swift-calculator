@@ -9,10 +9,10 @@
 import Foundation
 
 class Lexer {
-    var tokens: Token[]
+    var tokens: [Token]
     var tokenCurrentPosition: Int = 0
     
-    init(_ content: String[]) {
+    init(_ content: [String]) {
         tokens = []
         for (lineNumber, line) in enumerate(content) {
             self.parseLine(line, lineNumber)
@@ -30,7 +30,7 @@ class Lexer {
     
     
     func parseLine(line: String, _ lineNumber: Int) {
-        for var index = line.startIndex, counter = 0; index != line.endIndex; index = index.succ(), counter++ {
+        for var index = line.startIndex, counter = 0; index != line.endIndex; index = index.successor(), counter++ {
             if line[index] == " " { continue; }
             
             var currentToken: Token = Token(type: Token.TokenType.Unknown, name: "unknown", lineNumber: lineNumber)
@@ -66,8 +66,8 @@ class Lexer {
         case "=":   token.type = .Equal;
         case "*":
             token.type = .Mult
-            if index != line.endIndex && line[index.succ()] == "*" {
-                token.type = .Pow; index = index.succ()
+            if index != line.endIndex && line[index.successor()] == "*" {
+                token.type = .Pow; index = index.successor()
             }
         default:    break
         }
@@ -83,9 +83,9 @@ class Lexer {
         
         while index != line.endIndex && (String(line[index]).isAlpha() || String(line[index]).isDigit()) {
             identifier += line[index]
-            index = index.succ()
+            index = index.successor()
         }
-        index = index.pred()
+        index = index.predecessor()
         switch identifier {
         case "sin": token.type = .Sin
         case "cos": token.type = .Cos
@@ -113,20 +113,20 @@ class Lexer {
         
         while index != line.endIndex && String(line[index]).isDigit() {
             number += line[index]
-            index = index.succ()
+            index = index.successor()
         }
         
         if index != line.endIndex && String(line[index]) == "." {
-            index = index.succ()
+            index = index.successor()
             if index == line.endIndex || !String(line[index]).isDigit() { return }
             number += "."
             while index != line.endIndex && String(line[index]).isDigit() {
                 number += line[index]
-                index = index.succ()
+                index = index.successor()
             }
         }
         
-        index = index.pred()
+        index = index.predecessor()
         token.type = .Number
         token.name = number
     }

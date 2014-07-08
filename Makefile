@@ -1,10 +1,10 @@
-XCODE6 := /Applications/Xcode6-Beta.app
+XCODE6 := /Applications/Xcode6-Beta3.app
 
 XCODE6_TOOLCHAIN := $(XCODE6)/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
 XCODE6_SDK := $(XCODE6)/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
 
 SWIFT = $(XCODE6_TOOLCHAIN)/usr/bin/swift
-SWIFTFLAGS = -frontend -O2 -module-name $(APPNAME) -sdk $(XCODE6_SDK)
+SWIFTFLAGS = -frontend -Ofast -module-name $(APPNAME) -sdk $(XCODE6_SDK)
 SWIFTLINKERFLAGS = -force_load $(XCODE6_TOOLCHAIN)/usr/lib/arc/libarclite_macosx.a -syslibroot $(XCODE6_SDK) -lSystem -arch x86_64 -L $(XCODE6_TOOLCHAIN)/usr/lib/swift/macosx -rpath $(XCODE6_TOOLCHAIN)/usr/lib/swift/macosx -macosx_version_min 10.9.0 -no_objc_category_merging
 
 APPNAME = calc

@@ -12,12 +12,12 @@ class Parser {
     let lexer: Lexer
     var errorCaptured: Bool = false
     
-    init(_ sourceFileContent: String[]) {
+    init(_ sourceFileContent: [String]) {
         self.lexer = Lexer(sourceFileContent)
     }
     
-    func parse() -> Expression[] {
-        var content = Expression[]()
+    func parse() -> [Expression] {
+        var content = [Expression]()
         while lexer.currentToken.type != .EOF {
             var instruction = parseInstruction()
             if instruction {

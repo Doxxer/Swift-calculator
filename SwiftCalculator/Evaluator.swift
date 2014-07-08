@@ -9,11 +9,11 @@
 import Foundation
 
 class Evaluator : EvaluatorVisitor {
-    var program: Expression[]
+    var program: [Expression]
     var variables: Dictionary<String, Double> = [:]
     let format: String = ".6"
     
-    init(let _ program: Expression[]) {
+    init(let _ program: [Expression]) {
         self.program = program
     }
     
@@ -22,7 +22,9 @@ class Evaluator : EvaluatorVisitor {
         for expr in program {
             lastResult = expr.accept(self)
         }
-        for name in sort(Array(variables.keys)) {
+        var keys = Array(variables.keys)
+        sort(&keys)
+        for name in keys {
             println("\(name) = \(variables[name]!.format(format))")
         }
         if (lastResult) {
